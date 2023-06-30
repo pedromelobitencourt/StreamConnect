@@ -1,0 +1,306 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');*/
+/* Layout
+------------------------------*/
+
+html, body, #home {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: url(../imagens/capa.png),
+                url(../imagens/ruido.png),
+                linear-gradient(50deg, #b93b57, #2b07f9);
+    background-attachment: fixed;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Barra de navegação
+------------------------------*/
+
+nav.navbar-transparente {
+    padding: 15px 0px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #9bf0e1;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, 5);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.divisor {
+    width: 1px;
+    background: white;
+    margin: 12px 15px;
+}
+
+/* Capa
+---------------------*/
+
+.capa {
+    text-align: center;
+}
+
+.btn-custom {
+    color: white;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    text-transform: uppercase;
+    transition: background 0.4s, color 0.4s;
+    padding: 10px 20px;
+}
+
+.btn-roxo {
+    background: #7c25f8;
+}
+
+.btn-roxo:hover {
+    background: #6207e3;
+    color: white;
+}
+
+.btn-branco {
+    border: 2px solid white;
+}
+
+.btn-branco:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Tipografia
+--------------------*/
+
+h1 {
+    font-weight: 1100;
+    letter-spacing: -0.05em;
+    margin-bottom: 50px;
+    color: white;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+    letter-spacing: -0.1em;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 0.001em;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .btn-custom {
+        margin: 10px 15px;
+        font-size: 1em;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    h1 {
+        font-size: 3em;
+    }
+    .btn-custom {
+        margin: 10px 15px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    h1 {
+        font-size: 4em;
+    }
+
+    .btn-custom {
+        margin: 10px 15px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    h1 {
+        font-size: 5em;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 6em;
+    }
+}
+
+/* Poster
+---------------------- */
+
+.caixa {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#servicos {
+    background: white;
+}
+
+#servicos h2, h3 {
+    color: #7c25f8;
+}
+
+#recursos {
+    color: white;
+}
+
+#recursos h3 {
+    color: #9bf0e1;
+}
+
+#recursos h2{
+    color: white;
+}
+
+.filmes {
+    padding: 10px 0px;
+}
+
+.poster {
+    width: 1280px;
+    height: 350px;
+}
+
+.rotacionar1 {
+    -ms-transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+
+
+    padding-top: 180px;
+    padding-left: 80px;
+    width: 900px;
+}
+
+.rotacionar2 {
+    -ms-transform: rotate(310deg);
+    -webkit-transform: rotate(310deg);
+    transform: rotate(310deg);
+
+
+    padding-top: 180px;
+    padding-left: 50px;
+    width: 900px;
+}
+
+/* Footer
+---------------------------- */
+
+footer {
+    background: #000;
+    padding: 50px 0px 20px 0px;
+    position: relative;
+}
+
+footer h4 {
+    color: #919496;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+footer .navbar-nav a {
+    color: white;
+    font-size: 0.8em;
+}
+
+footer .navbar-nav a:hover {
+    color: #9bf0e1;
+    text-decoration: none;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    float: right;
+    margin: 0 5px;
+}
+
+.espacamento_extra {
+    padding-left: 0.8;
+}
+
+.botao-sidebar{
+    padding-right: 20px;
+}
+
+#sidebar{
+    width: 0px;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    overflow: hidden;
+    transition: width 0.9s ease;
+    white-space: nowrap;
+}
+.sidebar-item:hover{
+    background: rgba(0, 0, 0, 0.9);
+
+}
+/* Ajustar a fonte e o tamanho das letras, adicionar efeito overlay */
+.sidebar-item{
+    text-decoration: none;
+    color: white;
+    padding: 1em;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    
+}
+#overlay{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+}
+
+
+.search-button img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;  
+
+}
+.search-box{
+    padding-left: 500px;
+    position: fixed;
+    
+}
+.search-box input{
+    outline:none;
+    border:none;
+    border-radius: 30px;
+    opacity: 20;
+    padding: 10px 0px 12px 15px;
+   width: 0px;
+}
+
+/* LOGIN PAGE
+------------------------------ */
