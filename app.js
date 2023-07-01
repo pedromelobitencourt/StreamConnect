@@ -1,27 +1,40 @@
 const express = require('express')
-const mysql =  require('mysql')
+const homeRoutes = require('./routes/home.js')
+const bodyParser = require('body-parser')
+const signinRoutes = require('./routes/signin.js')
+const session = require('express-session')
 
 
-//criando conexão com o db
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password:"legal2002",
-    database: "streamconnect"
 
-})
 //query genérica
 
 
-//app
+//app e configurações iniciais
 const app = express()
-
-
+app.use(express.json());
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+    secret : 'teste',
+    resave : true,
+    saveUninitialized : true
+}));
 //view engine
 app.set('view engine','ejs')
+app.listen(8800)
+//teste
+console.log('test')
+//incializando as rotas
+app.use('/',homeRoutes)
+app.use('/signin',signinRoutes)
 
-//teste rota incial
-app.get('/',function(req,res){
+
+
+
+
+
+//teste
+/*app.get('/',function(req,res){
     
 
 
@@ -36,12 +49,5 @@ app.get('/',function(req,res){
         }
     })
 }
-)
-//configurações iniciais
-app.use(express.static(__dirname + '/public'));
-app.listen(8800)
-
-//teste
-console.log('test')
-
+)*/
 
