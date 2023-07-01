@@ -1,5 +1,5 @@
 const express = require('express');
-const homeRoutes = require('./routes/home.js');
+const homeRoutes = require('./routes/index.js');
 const bodyParser = require('body-parser');
 const signinRoutes = require('./routes/signin.js');
 const signupRoutes = require('./routes/signup.js');

@@ -7,47 +7,100 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/signin.css">
         <title>Teste Login</title>
     </head>
     <body>
 
-        <div class="container">
-            <h1 class="mt-5 mb-5 text-center text-primary"><b>Teste Login</b></h1>
+        <header>
+            <nav class="navbar navbar-expand-md navbar-light fixed-top navbar-transparente"> <!-- Barra de navegação responsiva -->
+              <div class="container">
+      
+                <a href="/" class="navbar-brand"> <!-- Clicar no logo vai para página inicial -->
+                  <img src="imagens/image.png" width="68">
+                </a>
+      
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+                  <i class="fas fa-bars text-white"></i>
+                </button>
+      
+                <div class="collapse navbar-collapse" id="nav-principal">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+    
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">Ajuda</a>
+                    </li>
+      
+                    <li class="nav-item divisor"></li>
+    
+                    <li class="nav-item">
+                      <button class="btnLogin-popup">Login</button>
+                    </li>
+                  </ul>
+                </div>
+      
+              </div>
+            </nav>
+          </header>
 
-            <div class="row mt-5">
-                <div class="col-md-3">&nbsp;</div>
-                <div class="col-md-6">
                 <% if(session.username) { %>
-
+                    <% // ir para a página de 'dashboard' %>
                     <h1>Hi User <%=session.username %>, Welcome</h1>
 
                     <a href="" class="btn btn-primary">Logout</a>
 
                 <% } else { %>
 
-                    <div class="card">
-                        <div class="card-header">Login</div>
-                        <div class="card-body">
-                            <form method="post" action="/signin">
-                                <div class="mb-3">
-                                    <label>Email Address</label>
-                                    <input name="cpf" class="form-control" />
-                                </div>
-                                <div class="mb-3">
-                                    <label>Password</label>
-                                    <input type="password" name="password" class="form-control" />
-                                </div>
-                                <div class="mb-3">
-                                    <input type="submit" class="btn btn-primary" value="Login" />
-                                </div>
-                            </form>
+                    <div class="wrapper">
+                        <span class="icon-close"><ion-icon name="close-circle-outline"></ion-icon></span>
+                
+                        <div class="form-box login">
+                          <h2>Login</h2>
+                          <form method="post" action="/signin">
+                
+                            <div class="input-box">
+                              <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                              <input type="text" name="cpf" placeholder="Cpf" required>
+                              <!-- <label>Email</label> -->
+                            </div>
+                
+                            <div class="input-box">
+                              <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                              <input type="password" name="password" placeholder="Senha" required>
+                              <!-- <label>Password</label> -->
+                            </div>
+                
+                            <div class="remember-forgot">
+                              <label><input type="checkbox">Remember me</label>
+                              <a href="#">Forgot password</a>
+                            </div>
+                
+                            <button type="submit" class="btn" value="Login">Login</button>
+                
+                            <div class="login-register">
+                              <p> Don't have an account? <a href="/signup" class="register-link">Register</a> </p>
+                            </div>
+                
+                          </form>
                         </div>
-                    </div>
+
+                
+                      </div>
 
                 <% } %>
-                </div>
-            </div>
         </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     </body>
 </html>

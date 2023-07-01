@@ -27,7 +27,7 @@ body::before {
 .wrapper {
     position: relative;
     width: 400px;
-    height: 630px;
+    height: 550px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.5);
 
