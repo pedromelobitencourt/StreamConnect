@@ -29,6 +29,10 @@ router.get('/', function(req, res, next) {
                     if(data[count].senha == password)
                     {
                         request.session.username = data[count].username;
+                        request.session.cpf = data[count].cpf;
+                        request.session.senha = data[count].senha;
+                        request.session.datanascimento = data[count].datanascimento
+
 
                         response.send('Senha correta');
                     }

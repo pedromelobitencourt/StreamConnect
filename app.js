@@ -3,6 +3,7 @@ const homeRoutes = require('./routes/home.js')
 const bodyParser = require('body-parser')
 const signinRoutes = require('./routes/signin.js')
 const session = require('express-session')
+const atualizaruserRoutes = require('./routes/infousuario.js')
 
 
 
@@ -27,6 +28,7 @@ console.log('test')
 //incializando as rotas
 app.use('/',homeRoutes)
 app.use('/signin',signinRoutes)
+app.use('/atualizarusuario', atualizaruserRoutes)
 
 
 
