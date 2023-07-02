@@ -130,35 +130,38 @@
     <!-- Avaliação -->
     <section class="avaliacao">
         <div class="conteudo-avaliacao">
+            <form method="post" action="/movie">
+                
+                <div class="star-widget">
+                
+                    <input type="radio" name="rate" id="rate-5" value="5">
+                    <label for="rate-5" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-4" value="4">
+                    <label for="rate-4" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-3" value="3">
+                    <label for="rate-3" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-2" value="2">
+                    <label for="rate-2" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-1" value="1">
+                    <label for="rate-1" class="fas fa-star"></label>
+                </div>
+
+                <header id="head"></header>
+                <div class="btn-avaliacao">
+                    <button type="submit">Avaliar</button>
+                </div>
+                
+            </form>
+
             <div class="post">
                 <div class="text">Obrigado por avaliar!</div>
                 <div class="edit">EDITAR</div>
             </div>
-
-            <div class="star-widget">
-                
-                <input type="radio" name="rate" id="rate-5" value="5">
-                <label for="rate-5" class="fas fa-star"></label>
-
-                <input type="radio" name="rate" id="rate-4" value="4">
-                <label for="rate-4" class="fas fa-star"></label>
-
-                <input type="radio" name="rate" id="rate-3" value="3">
-                <label for="rate-3" class="fas fa-star"></label>
-
-                <input type="radio" name="rate" id="rate-2" value="2">
-                <label for="rate-2" class="fas fa-star"></label>
-
-                <input type="radio" name="rate" id="rate-1" value="1">
-                <label for="rate-1" class="fas fa-star"></label>
-
-                <form method="post" action="/movie">
-                    <header></header>
-                    <div class="btn-avaliacao">
-                        <button type="submit" value="avaliar">Avaliar</button>
-                    </div>
-                </form>
-            </div>
+            
         </div>
     </section>
 
@@ -195,10 +198,12 @@
         btn.onclick = () => {
             widget.style.display = "none";
             post.style.display = "block";
+            btn.style.display = "none";
 
             editBtn.onclick = () => {
                 widget.style.display = "block";
                 post.style.display = "none";
+                btn.style.display = "block";
             }
 
             return false;

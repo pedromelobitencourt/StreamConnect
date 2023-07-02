@@ -29,8 +29,10 @@ router.post('/', function(request, response, next){
                     if(data[count].senha == password)
                     {
                         request.session.username = data[count].username;
+                        request.session.cpf = data[count].cpf;
 
-                        response.send('Senha correta');
+                        // response.send('Senha correta');
+                        response.redirect('signin');
                     }
                     else
                     {

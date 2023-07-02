@@ -3,19 +3,42 @@ const router = express.Router();
 const database = require('../db.js');
 
 router.post('/', function(req, res, next) {
-    var rate = req.body;
-    // res.send("apertou");
+    var rate = req.body.rate;
+    var filme = req.session.idFilme;
+    var cpf = req.session.cpf;
 
-    console.log(req.body);
+    if(rate && filme && cpf) {
+        query = `INSERT INTO avaliacao
+        VALUES(${filme}, "${cpf}", CURDATE(), ${rate});`;
 
-    // console.log("OIHJiughiuygsijhk");
+        database.query(query, function(error1, data1) {
+            if(error1) {
+                if(error1.code === "ER_DUP_ENTRY") { // Avaliando novamente
+                    query = `UPDATE avaliacao SET nota = ${rate} 
+                    WHERE id_filme = ${filme} AND cpf_usuario = ${cpf};`;
+
+                    database.query(query, function(error2, data2) {
+                        console.log(query);
+
+                        if(error2) {
+                            res.status(440).send(error2);
+                        }
+                    });
+                }
+                else {
+                    res.status(440).send(error1);
+                }
+                console.log(error1);
+            }
+        });
+    }
 });
 
 router.get('/', function(req, res, next) {
-    // if(!req.session.username) { // Não está logado
-    //     res.redirect('signin');
-    // }
-    // else {
+    if(!req.session.username) { // Não está logado
+        res.redirect('signin');
+    }
+    else {
         req.body.filme = 3; // id do filme
         var idFilme = req.body.filme;
 
@@ -36,6 +59,7 @@ router.get('/', function(req, res, next) {
                 req.session.notaImdb = filme.notaimdb;
                 req.session.classificacaoFilme = filme.classificacao;
                 req.session.sinopseFilme = filme.sinopse;
+                req.session.idFilme = idFilme;
 
 
                 // Categorias do filme
@@ -69,7 +93,7 @@ router.get('/', function(req, res, next) {
 
             if(error1) res.send(error1);
         });
-    //}
+    }
 });
 
 module.exports = router;
