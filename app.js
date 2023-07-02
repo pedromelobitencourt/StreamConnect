@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const signinRoutes = require('./routes/signin.js');
 const signupRoutes = require('./routes/signup.js');
 const paymentRoutes = require('./routes/payment.js');
+const movieRoutes = require('./routes/movie.js');
 const session = require('express-session');
 
 
@@ -34,6 +35,7 @@ app.use('/',homeRoutes);
 app.use('/signin',signinRoutes);
 app.use('/signup', signupRoutes);
 app.use('/payment', paymentRoutes);
+app.use('/movie', movieRoutes);
 
 
 

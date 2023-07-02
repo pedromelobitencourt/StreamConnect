@@ -1,0 +1,563 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+    background-color: #080808;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    background-color: #e70634;
+    color: #080808;
+}
+
+/* Navigation */
+.navigation {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 30px 50px;
+    max-width: 1400px;
+    margin: auto;
+    width: 100%;
+}
+
+.navigation .menu-icon {
+    cursor: pointer;
+    float: right;
+    padding: 20px 10px;
+    z-index: 103;
+}
+
+.navigation .menu-icon .nav-icon {
+    background-color: #ffff;
+    display: block;
+    height: 2px;
+    width: 25px;
+    position: relative;
+    transition: background 0.2s ease-out;
+}
+
+.navigation .menu-icon .nav-icon::before, 
+.navigation .menu-icon .nav-icon::after {
+    background-color: #ffff;
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: all ease-out 0.2s;
+}
+
+.navigation .menu-icon .nav-icon::before {
+    top: 8px;
+}
+
+.navigation .menu-icon .nav-icon::after {
+    top: -8px;
+}
+
+.navigation .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+}
+
+.navigation .menu-btn:checked ~ .menu-icon .nav-icon::before {
+    transform: rotate(-45deg);
+    top: 0px;
+}
+
+.navigation .menu-btn:checked ~ .menu-icon .nav-icon::after {
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* Menu */
+.menu {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100px;
+    background-color: #111111f1;
+    z-index: 102;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fade 0.3s;
+}
+
+.menu li a {
+    color: #fff;
+    margin: 0px 40px;
+    font-size: 2rem;
+    font-family: sans-serif;
+    transition: all ease 0.3s;
+}
+
+.menu li a:hover {
+    font-size: 2.3rem;
+    color: #e70634;
+    transition: all ease 0.3s;
+}
+
+.navigation .menu-btn:checked ~ .menu {
+    display: flex;
+}
+
+@keyframe fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.logo {
+    margin: 0px auto 0px 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* Informações filme */
+
+.movie-banner {
+    width: 90%;
+    max-width: 1400px;
+    margin: 10px auto;
+    min-height: 520px;
+    padding: 60px 40px 40px 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-banner::after {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.7);
+    background: linear-gradient(0deg, rgb(8, 8, 8) 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.movie-banner::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.7);
+    background: linear-gradient(-90deg, rgba(37, 37, 37, 0.2) 0%, rgba(15, 15, 15, 0.3) 100%);
+}
+
+.m-banner-img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.m-banner-img::before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(32, 32, 32, 0.7);
+    background: linear-gradient(-90deg, rgba(37, 37, 37, 0.2) 0%, rgba(15, 15, 15, 0.3) 100%);
+}
+
+.m-banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner-container {
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    position: relative;
+}
+
+.title-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-title h1 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 2.3em;
+    line-height: 50px;
+    letter-spacing: 1px;
+}
+
+.more-about-movie .quality {
+    background-color: #e70634;
+    color: #080808;
+    font-weight: 600;
+    padding: 0px 5px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.more-about-movie {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    color: #e9e9e9;
+}
+
+.more-about-movie .rating img {
+    width: 30px;
+    height: 15px;
+    margin-left: 5px;
+}
+
+.more-about-movie .rating,
+.more-about-movie span {
+    margin-right: 20px;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.title-bottom {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.title-bottom .category {
+    margin-right: 40px;
+    font-size: 0.9rem;
+    color: #dadada;
+}
+
+.title-bottom .category strong {
+    font-weight: 500;
+    color: #fff;
+}
+
+.title-bottom .category a {
+    color: #e70634;
+    margin-right: 5px;
+}
+
+.watch-btn {
+    width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff09;
+    border: 1px solid #ffffff2c;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+}
+
+.watch-btn:hover {
+    background-color: #e70634;
+    transition: all ease 0.3s;
+}
+
+/* Play Button */
+.play-btn {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 1px solid #dadada48;
+    z-index: 3;
+    background-color: rgba(255, 0, 0, 0, 0.185);
+    position: relative;
+}
+
+.play-btn a {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+
+.play-btn a:hover {
+    background-color: #e70634;
+    transition: all ease 0.3s;
+}
+
+.play-btn i {
+    color: #fff;
+}
+
+.play-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    max-width: 500px;
+}
+
+.play-btn::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 180%;
+    height: 180%;
+    border: 1px solid #ffffff26;
+    background-color: #ffffff18;
+    z-index: -1;
+}
+
+/* Full Movie */
+#play {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 15, 0.7);
+    z-index: 108;
+    display: none;
+}
+
+.play-movie {
+    width: 80%;
+}
+
+.play-movie video,
+.play-movie iframe {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    z-index: 108;
+}
+
+.close-movie {
+    position: fixed;
+    right: 60px;
+    top: 60px;
+    font-size: 2rem;
+    color: #e70634;
+    transition: all ease 0.3s;
+}
+
+.close-movie:hover {
+    opacity: 0.6;
+    transition: all ease 0.3s;
+}
+
+.active-popup {
+    display: flex !important;
+}
+
+/* Details */
+.movie-details {
+    max-width: 1000px;
+    width: 100%;
+    margin: 30px auto 20px auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.movie-details strong {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.movie-details p {
+    color: #747474;
+    margin: 10px 0px;
+}
+
+/* Avaliacao */
+
+.avaliacao {
+    position: relative;
+    width: 400px;
+    background: #111;
+    padding: 20px 30px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    transform: translateX(700px);
+}
+
+.avaliacao .star-widget input {
+    display: none;
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: #fff;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+    color: #fd4;
+}
+
+input:checked ~ label {
+    color: #fd4;
+}
+
+input#rate-5:checked ~ label {
+    color: #fd7;
+    text-shadow: 0 0 20 px #952;
+}
+
+form header {
+    width: 100%;
+    font-size: 25px;
+    color: #fe7;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+#rate-1:checked ~ form header:before {
+    content: 'Muito ruim 😡';
+}
+
+#rate-2:checked ~ form header:before {
+    content: 'Ruim 😠';
+}
+
+#rate-3:checked ~ form header:before {
+    content: 'Mais ou menos 😐';
+}
+
+#rate-4:checked ~ form header:before {
+    content: 'Bom 😀';
+}
+
+#rate-5:checked ~ form header:before {
+    content: 'Muito bom 😁';
+}
+
+.avaliacao form {
+    display: none;
+}
+
+.avaliacao .conteudo-avaliacao {
+    align-items: center;
+    justify-content: center;
+}
+
+input:checked ~ form {
+    display: block;
+}
+
+.avaliacao .text {
+    font-size: 25px;
+    color: #667;
+    font-weight: 500;
+}
+
+.avaliacao .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #667;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.avaliacao .edit:hover {
+    text-decoration: underline;
+}
+
+.avaliacao .post {
+    display: none;
+    text-align: center;
+}
+
+form .btn-avaliacao {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+form .btn-avaliacao button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #444;
+    outline: none;
+    background: #222;
+    color: #999;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form .btn-avaliacao button:hover {
+    background: #1b1b1b;
+}
