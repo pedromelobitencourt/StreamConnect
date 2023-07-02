@@ -3,6 +3,7 @@ const homeRoutes = require('./routes/index.js');
 const bodyParser = require('body-parser');
 const signinRoutes = require('./routes/signin.js');
 const signupRoutes = require('./routes/signup.js');
+const paymentRoutes = require('./routes/payment.js');
 const session = require('express-session');
 
 
@@ -32,7 +33,7 @@ console.log('test');
 app.use('/',homeRoutes);
 app.use('/signin',signinRoutes);
 app.use('/signup', signupRoutes);
-
+app.use('/payment', paymentRoutes);
 
 
 

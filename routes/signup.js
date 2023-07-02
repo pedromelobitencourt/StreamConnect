@@ -46,19 +46,21 @@ router.post('/', function(request, response, next) { // Registrar
                         response.send("O cpf apenas pode ter 11 caracteres");
                     }
                     else if(error.message.includes("senha")) {
-                        response.send("A senha é muito longa")
+                        response.send("A senha é muito longa");
                     }
                 }
                 else if(error.message.includes("tamanhosenha")) { // Senha curta
-                    response.send("A senha deve conter 'x' caracteres")
+                    response.send("A senha deve conter 'x' caracteres");
                 }
             }
             else {
-                response.send('Registrado com sucesso!')
+                // response.send('Registrado com sucesso!');
+                response.redirect('signin');
+                request.session.username = username;
             }
 
             response.end();
-        })
+        });
     }
 })
 
