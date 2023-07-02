@@ -80,7 +80,33 @@ router.get('/', function(req, res, next) {
                             generos = generos.substring(0, generos.length - 2);
 
                         req.session.generos = generos;
-                        res.render('pages/movie_page', { session : req.session } );
+
+                        // Elenco
+                        query3 = `SELECT nome FROM elenco WHERE id_filme = ${idFilme};`;
+
+                        var elenco = "";
+
+                        database.query(query3, function(error3, data3) {
+                            console.log(data3);
+                            if(!error3) {
+                                for(var i = 0; i < data3.length; i++) {
+                                    var e = data3[i].nome;
+
+                                    elenco += e + ", ";
+                                }
+
+                                if(elenco[elenco.length - 2] === ',')
+                                    elenco = elenco.substring(0, elenco.length - 2);
+
+                                req.session.elencoFilme = elenco;
+                                res.render('pages/movie_page', { session : req.session } );
+                            }
+                            else {
+                                res.send(error3);
+                            }
+                        });
+
+                        //res.render('pages/movie_page', { session : req.session } );
                     }
                     else {
                         res.send(error2);

@@ -75,6 +75,8 @@
                         <div class="rating"><%=session.notaImdb %><img src="imagens/IMDb-icon.png" alt="imdb"></div>
 
                         <span class="ano"><%=session.anoFilme %></span>
+
+                        <span class="classificacao">Classificação: <%=session.classificacaoFilme %> anos</span>
                     </div>
 
                 </div>
@@ -125,6 +127,8 @@
     <section class="movie-details">
         <strong><%=session.nomeFilme %></strong>
         <p><%=session.sinopseFilme %></p>
+        <p>Diretor: <%=session.diretorFilme %></p>
+        <p>Elenco: <%=session.elencoFilme %></p>
     </section>
 
     <!-- Avaliação -->
