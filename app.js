@@ -1,7 +1,10 @@
-const express = require('express')
+const express = require('express');
+const homeRoutes = require('./routes/index.js');
+const signinRoutes = require('./routes/signin.js');
+const signupRoutes = require('./routes/signup.js');
+const paymentRoutes = require('./routes/payment.js');
+const movieRoutes = require('./routes/movie.js');
 const bodyParser = require('body-parser')
-const homeRoutes = require('./routes/home.js')
-const signinRoutes = require('./routes/signin.js')
 const MoviesRoutes = require('./routes/movies.js')
 const session = require('express-session')
 const atualizaruserRoutes = require('./routes/infousuario.js')
@@ -12,7 +15,7 @@ const atualizaruserRoutes = require('./routes/infousuario.js')
 
 
 //app e configurações iniciais
-const app = express()
+const app = express();
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,16 +24,22 @@ app.use(session({
     resave : true,
     saveUninitialized : true
 }));
+
 //view engine
-app.set('view engine','ejs')
-app.listen(8800)
+app.set('view engine','ejs');
+app.listen(8800);
+
 //teste
-console.log('test')
+console.log('test');
+
 //incializando as rotas
-app.use('/',homeRoutes)
-app.use('/signin',signinRoutes)
-app.use('/movies',MoviesRoutes)
-app.use('/atualizarusuario', atualizaruserRoutes)
+app.use('/',homeRoutes);
+app.use('/signin',signinRoutes);
+app.use('/signup', signupRoutes);
+app.use('/payment', paymentRoutes);
+app.use('/movie', movieRoutes);
+app.use('/movies',MoviesRoutes);
+app.use('/atualizarusuario', atualizaruserRoutes);
 
 
 

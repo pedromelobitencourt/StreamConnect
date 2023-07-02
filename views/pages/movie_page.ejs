@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nome filme - StreamConnect</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/movie.css">
+</head>
+<body>
+    <!-- Scroll: Progress Bar -->
+    <div class="progress">
+        <span id="progress-value"></span>
+    </div>
+
+    <!-- Navegação -->
+    <nav class="navigation">
+
+        <!-- Menu btn -->
+
+        <input type="checkbox" class="menu-btn" id="menu-btn">
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+
+
+        <!-- Logo -->
+
+        <a href="/" class="logo">
+            <img src="imagens/image.png" width="68">
+        </a>
+
+        <!-- Menu -->
+
+        <ul class="menu">
+            <li> <a href="/">Home</a> </li>
+            <li> <a href="#">Filmes</a> </li>
+            <li> <a href="#">Alterar dados</a> </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Movie Banner -->
+
+    <section class="movie-banner">
+
+        <!-- img -->
+
+        <div class="m-banner-img">
+            <img src="/imagens/fightclub_banner">
+        </div>
+
+        <!-- Content -->
+        <div class="banner-container">
+
+            <!-- Title Container -->
+            <div class="title-container">
+                <!-- Title Top -->
+                <div class="title-top">
+
+
+                    <!-- Title -->
+                    <div class="movie-title">
+                        <h1> <%=session.nomeFilme %> </h1>
+                        <!-- <h1>Título do Filme</h1> -->
+                    </div>
+
+                    <!-- More About -->
+                    <div class="more-about-movie">
+                        <span class="quality">Qualidade</span>
+
+                        <div class="rating"><%=session.notaImdb %><img src="imagens/IMDb-icon.png" alt="imdb"></div>
+
+                        <span class="ano"><%=session.anoFilme %></span>
+
+                        <span class="classificacao">Classificação: <%=session.classificacaoFilme %> anos</span>
+                    </div>
+
+                </div>
+
+                <!-- Title Bottom -->
+                <div class="title-bottom">
+                    <!-- Category -->
+                    <div class="category">
+                        <strong>Gêneros</strong><br/>
+                        <a href="#"><%=session.generos %></a><!-- <a href="#"></a> -->
+                    </div>
+
+                    <!-- Watch Btn -->
+                    <!-- <a href="#" class="watch-btn">Watch</a> -->
+                </div>
+
+            </div>
+
+            <!-- Play Button -->
+            <div class="play-btn-container">
+                <div class="play-btn">
+                    <a href="javascript:void">
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Full Movie -->
+            <div id="play" class="play">
+                <!-- Close Button -->
+                <a href="javascript:void" class="close-movie">
+                    <i class="fas fa-times"></i>
+                </a>
+
+                <!-- Movie -->
+                <div class="play-movie">
+                    <video id="m-video" controls>
+                        <source src="/videos/theboys.webm" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Movie Details-->
+    <section class="movie-details">
+        <strong><%=session.nomeFilme %></strong>
+        <p><%=session.sinopseFilme %></p>
+        <p>Diretor: <%=session.diretorFilme %></p>
+        <p>Elenco: <%=session.elencoFilme %></p>
+    </section>
+
+    <!-- Avaliação -->
+    <section class="avaliacao">
+        <div class="conteudo-avaliacao">
+            <form method="post" action="/movie">
+                
+                <div class="star-widget">
+                
+                    <input type="radio" name="rate" id="rate-5" value="5">
+                    <label for="rate-5" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-4" value="4">
+                    <label for="rate-4" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-3" value="3">
+                    <label for="rate-3" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-2" value="2">
+                    <label for="rate-2" class="fas fa-star"></label>
+
+                    <input type="radio" name="rate" id="rate-1" value="1">
+                    <label for="rate-1" class="fas fa-star"></label>
+                </div>
+
+                <header id="head"></header>
+                <div class="btn-avaliacao">
+                    <button type="submit">Avaliar</button>
+                </div>
+                
+            </form>
+
+            <div class="post">
+                <div class="text">Obrigado por avaliar!</div>
+                <div class="edit">EDITAR</div>
+            </div>
+            
+        </div>
+    </section>
+
+    <script src="scripts/jQuery.js"></script>
+
+    <script>
+        /* Popup Open Movie */
+        $(document).on('click', '.play-btn a', function() {
+            $('.play').addClass('active-popup');
+        });
+
+        /* Popup Close Movie */
+        $(document).on('click', '.close-movie', function() {
+            $('.play').removeClass('active-popup');
+        });
+
+        /* Auto Play when Popup Open */
+        $('.play-btn a').click(function() {
+            $('#m-video')[0].play();
+        });
+
+        /* Close video when Popup Close */
+        $('.close-movie').click(function() {
+            $('#m-video')[0].pause();
+        });
+    </script>
+
+    <!-- <script>
+        const btn = document.querySelector(".btn-avaliacao");
+        const post = document.querySelector(".post");
+        const widget = document.querySelector(".star-widget");
+        const editBtn = document.querySelector(".edit");
+
+        btn.onclick = () => {
+            widget.style.display = "none";
+            post.style.display = "block";
+            btn.style.display = "none";
+
+            editBtn.onclick = () => {
+                widget.style.display = "block";
+                post.style.display = "none";
+                btn.style.display = "block";
+            }
+
+            return false;
+        }
+
+        
+    </script> -->
+
+</body>
+</html>

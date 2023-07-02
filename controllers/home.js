@@ -1,8 +1,8 @@
+const express = require('express');
+const router = express.Router();
 
-const getHome = (req,res) => {
-    res.render('pages/index')         
-}
-module.exports = {
-    getHome
-    
-};
+router.get('/', function(req, res, next) {
+    res.render('pages/index', { session : req.session} );
+});
+
+module.exports = router;

@@ -3,10 +3,10 @@ const router = express.Router();
 const database = require('../db.js');
 
 router.get('/', function(req, res, next) {
-    res.render('pages/signin',{ session : req.session} );
-  });
+    res.render('pages/signin', { session : req.session} );
+});
 
-  router.post('/', function(request, response, next){
+router.post('/', function(request, response, next){
 
     var cpf = request.body.cpf;
 
@@ -34,8 +34,10 @@ router.get('/', function(req, res, next) {
                         request.session.datanascimento = data[count].datanascimento
 
                        
+                    
 
-                        response.send('Senha correta');
+                        // response.send('Senha correta');
+                        response.redirect('signin');
                     }
                     else
                     {

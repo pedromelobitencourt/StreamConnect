@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/payment.css">
+
+    <title>Pagamento - StreamConnect</title>
+
+</head>
+<body>
+        <div class="container">
+            <form action="">
+                <h3 class="title">username: <%=session.username %></h1>
+                <div class="row">
+
+                    <div class="col">
+
+                        <h3 class="title">Endereço de Cobrança</h3>
+
+                        <div class="inputBox">
+                            <span>Nome completo: </span>
+                            <input type="text" placeholder="Evadrino">
+                        </div>
+                        <div class="inputBox">
+                            <span>E-mail:</span>
+                            <input type="email" placeholder="evadrino@cefetmg.br">
+                        </div>
+                        <div class="inputBox">
+                            <span>Endereço: </span>
+                            <input type="text" placeholder="Bairro - Rua - Complemento">
+                        </div>
+                        <div class="inputBox">
+                            <span>Cidade: </span>
+                            <input type="text" placeholder="Belo Horizonte">
+                        </div>
+
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>Estado: </span>
+                                <input type="text" placeholder="Minas Gerais">
+                            </div>
+                            <div class="inputBox">
+                                <span>CEP:</span>
+                                <input type="text" placeholder="99999-999">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <h3 class="title">Pagamento</h3>
+
+                        <div class="inputBox">
+                            <span>Bandeiras aceitas:</span>
+                            <img src="imagens/card_img.png" alt="">
+                        </div>
+                        <div class="inputBox">
+                            <span>Nome no cartão:</span>
+                            <input type="text" placeholder="Evadrino ...">
+                        </div>
+                        <div class="inputBox">
+                            <span>Número do cartão:</span>
+                            <input type="number" placeholder="1111-2222-3333-4444">
+                        </div>
+                        <div class="inputBox">
+                            <span>Mês da validade:</span>
+                            <input type="text" placeholder="Janeiro">
+                        </div>
+
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>Ano da validade:</span>
+                                <input type="number" placeholder="2022">
+                            </div>
+                            <div class="inputBox">
+                                <span>CVV :</span>
+                                <input type="text" placeholder="999">
+                            </div>
+                        </div>
+
+                    </div>
+            
+                </div>
+
+                <input type="submit" value="Finalizar compra" class="submit-btn">
+                <input type="submit" value="Cancelar compra" class="submit-btn-cancelar">
+                <input type="submit" value="Voltar para o carrinho" class="submit-btn-voltar">
+
+            </form>
+
+        </div>    
+</body>
+</html>
