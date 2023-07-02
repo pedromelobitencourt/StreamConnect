@@ -30,13 +30,13 @@
 
     <div id = "sidebar">
       <a href="" class="sidebar-item">
-        <div>teste1</div>
+        <div>Carrinho</div>
       </a>
       <a href="" class="sidebar-item">
-        <div>teste2</div>
+        <div>Informações da conta</div>
       </a>
       <a href="" class="sidebar-item">
-        <div>teste3</div>
+        <div>Avaliar filmes</div>
       </a>
     </div>
 
@@ -68,11 +68,9 @@
               <li class="nav-item divisor"></li>
 
               <li class="nav-item">
-                <a href="signin.html" class="nav-link">Sign In</a>
+                <a href="signin.html" class="nav-link">Logout</a>
               </li>
-              <li class="nav-item">
-                <a href="" class="nav-link">Sign Up</a>
-              </li>
+              
             </ul>
           </div>
 
@@ -97,13 +95,15 @@
         
         <p class="section-subtitle">Bem vindo, <%=session.username %></p>
 
-        <h2 class="h2-section-title">Filmes no catálogo</h2>
+        <h2 class="h2-section-title">Todos os filmes </h2>
 <!-- Parte de bem vindo do usuario e titulo dos filmes
       -->
     </div>
+    <!--   
     <div class = "filter-page">
+      
       <ul class="filter-list">
-
+ 
         <li>
           <button class="filter-btn">opção 1</button>
         </li>
@@ -117,10 +117,11 @@
         </li>
 
       </ul>
-    </div>
-<!-- 
-        opções de filtro
-      -->
+      
+    </div>-->
+
+      
+    <!--cartoes de filmes-->  
 
 
 
@@ -129,6 +130,7 @@
 <!--cartoes de filmes-->
 
 <ul class="movies-list">
+  <% for(var i=0; i<data.length; i++) {%>
 
   <li class = "movies-list-itens">
       
@@ -136,25 +138,25 @@
 
       <a href="/">
         <figure class="card-banner">
-          <img src="imgMovies/ant man.jpg" alt="">
+          <img src="imgMovies/<%=data[i].nome%>.jpg" alt="">
         </figure>
       </a>
 
       <div class="title-wrapper">
         <a href="/">
-          <h3 class="card-title">titulo de teste</h3>
+          <h3 class="card-title"><%=data[i].nome%></h3>
         </a>
 
-        <time datetime="">Ano: 2023</time>
+        <time datetime="">Ano: <%=data[i].ano%></time>
       </div>
 
       <div class="card-meta">
-        <div class="badge badge-outline">Qualidade: HD</div>
+        <div class="badge badge-outline">Classificação: <%-data[i].classificacao%></div>
 
         <div class="duration">
           <ion-icon name="time-outline"></ion-icon>
 
-          <time datetime="PT137M">Duração: 120</time>
+          <time datetime="PT137M">Nota IMDB: <%-data[i].notaimdb%></time>
         </div>
 
         <div class="rating">
@@ -166,123 +168,24 @@
 
     </div>  
   </li>
-
-  <li class = "movies-list-itens">
-      
-    <div class="movie-card">
-
-      <a href="/">
-        <figure class="card-banner">
-          <img src="imgMovies/ant man.jpg" alt="">
-        </figure>
-      </a>
-
-      <div class="title-wrapper">
-        <a href="/">
-          <h3 class="card-title">titulo de teste</h3>
-        </a>
-
-        <time datetime="">Ano: 2023</time>
-      </div>
-
-      <div class="card-meta">
-        <div class="badge badge-outline">Qualidade: HD</div>
-
-        <div class="duration">
-          <ion-icon name="time-outline"></ion-icon>
-
-          <time datetime="PT137M">Duração: 120</time>
-        </div>
-
-        <div class="rating">
-          <ion-icon name="star"></ion-icon>
-
-          <data></data>
-        </div>
-      </div>
-
-    </div>  
-  </li>
-
-  
-  <li class = "movies-list-itens">
-      
-    <div class="movie-card">
-
-      <a href="/">
-        <figure class="card-banner">
-          <img src="imgMovies/ant man.jpg" alt="">
-        </figure>
-      </a>
-
-      <div class="title-wrapper">
-        <a href="/">
-          <h3 class="card-title">titulo de teste</h3>
-        </a>
-
-        <time datetime="">Ano: 2023</time>
-      </div>
-
-      <div class="card-meta">
-        <div class="badge badge-outline">Qualidade: HD</div>
-
-        <div class="duration">
-          <ion-icon name="time-outline"></ion-icon>
-
-          <time datetime="PT137M">Duração: 120</time>
-        </div>
-
-        <div class="rating">
-          <ion-icon name="star"></ion-icon>
-
-          <data></data>
-        </div>
-      </div>
-
-    </div>  
-  </li>
-
-  <li class = "movies-list-itens">
-      
-    <div class="movie-card">
-
-      <a href="/">
-        <figure class="card-banner">
-          <img src="imgMovies/ant man.jpg" alt="">
-        </figure>
-      </a>
-
-      <div class="title-wrapper">
-        <a href="/">
-          <h3 class="card-title">titulo de teste</h3>
-        </a>
-
-        <time datetime="">Ano: 2023</time>
-      </div>
-
-      <div class="card-meta">
-        <div class="badge badge-outline">Qualidade: HD</div>
-
-        <div class="duration">
-          <ion-icon name="time-outline"></ion-icon>
-
-          <time datetime="PT137M">Duração: 120</time>
-        </div>
-
-        <div class="rating">
-          <ion-icon name="star"></ion-icon>
-
-          <data></data>
-        </div>
-      </div>
-
-    </div>  
-  </li>
-  
+  <% } %>
+   
 
 </ul>
-    
+
+
+<div class = "flex-wrapper">
+
+  <div class = "little-wrapper">
+    <h2 class="h2-section-title">Deseja assistir </h2>
+</div>
+
+
+</div>  
   
+
+
+
   
   </div>
 

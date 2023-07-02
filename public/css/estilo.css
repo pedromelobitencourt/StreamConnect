@@ -309,11 +309,12 @@ footer ul li {
 section.filmes{
     background-size: cover;
   background-position: center;
-  padding-block: var(--section-padding);
+  
 
 }
 .container-movie{
     padding-top: 110px;
+    
 }
 
 .filmes .flex-wrapper { margin-bottom: 50px; }
@@ -348,17 +349,14 @@ section.filmes{
     gap: 30px;
     
     
+    
 }
 .container-movie .filter-btn{
-    color: var(--white);
-    background: var(--raisin-black);
-    font-size: var(--fs-11);
-    font-weight: var(--fw-500);
-    border: 2px solid var(--gunmetal-1);
     padding: 12px 26px;
     border-radius: 50px;
     
 }
+
 /* MOVIE Card
 ------------------------------ */
 .movies-list {
@@ -372,9 +370,7 @@ section.filmes{
     
     
     
-    
   }
-
 
 /*.movies-list.has-scrollbar {
     display: flex;

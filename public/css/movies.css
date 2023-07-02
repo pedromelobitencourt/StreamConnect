@@ -269,6 +269,7 @@ footer ul li {
     cursor: pointer;
     display: flex;
     justify-content: left;
+    font-size: 20px;
     
 }
 #overlay{
@@ -306,19 +307,14 @@ footer ul li {
 
 /* MOVIES PAGE
 ------------------------------ */
-section.filmes{
-    background-size: cover;
-  background-position: center;
-  padding-block: var(--section-padding);
 
-}
 .container-movie{
     padding-top: 110px;
 }
 
-.filmes .flex-wrapper { margin-bottom: 50px; }
-
-.filmes .section-title { margin-bottom: 30px; }
+.flex-wrapper{
+    float: left;
+}
 
 .section-subtitle{
     color: white;
@@ -349,7 +345,7 @@ section.filmes{
     
     
 }
-.container-movie .filter-btn{
+/*.container-movie .filter-btn{
     color: var(--white);
     background: var(--raisin-black);
     font-size: var(--fs-11);
@@ -357,8 +353,10 @@ section.filmes{
     border: 2px solid var(--gunmetal-1);
     padding: 12px 26px;
     border-radius: 50px;
+    visibility: hidden;
+    list-style: none;
     
-}
+}*/
 /* MOVIE Card
 ------------------------------ */
 .movies-list {
@@ -366,7 +364,8 @@ section.filmes{
     display: grid;
     gap: 25px;
     grid-template-columns: 300px 300px 300px 300px;
-    
+    list-style: none;
+    float:left
     
     
     
