@@ -48,27 +48,6 @@ body::before {
     padding: 40px;
 }
 
-.wrapper .icon-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 45px;
-    height: 45px;
-    background: #2c1a63ec;
-    font-size: 2em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 20px;
-    z-index: 1;
-}
-
-.wrapper .icon-close:hover {
-    cursor: pointer;
-    background: #274a9bec;
-}
-
 .wrapper.active {
     height: 520px;
 }
@@ -242,7 +221,9 @@ body::before {
     color: white;
 }
 
-
+.wrapper .form-box .btn:hover {
+    background-color: #2b07f9;
+}
 
 
 /* Barra de navegação

@@ -105,3 +105,17 @@
 .container form .submit-btn-cancelar:hover {
     background: #ff0000;
 }
+
+.container form .submit-btn-voltar {
+    width: 100%;
+    padding:12px;
+    font-size: 17px;
+    background: #322c2ce2;
+    color:#fff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.container form .submit-btn-voltar:hover {
+    background: #504444;
+}
