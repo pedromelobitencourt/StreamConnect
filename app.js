@@ -4,6 +4,7 @@ const homeRoutes = require('./routes/home.js')
 const signinRoutes = require('./routes/signin.js')
 const MoviesRoutes = require('./routes/movies.js')
 const session = require('express-session')
+const atualizaruserRoutes = require('./routes/infousuario.js')
 
 
 
@@ -29,6 +30,7 @@ console.log('test')
 app.use('/',homeRoutes)
 app.use('/signin',signinRoutes)
 app.use('/movies',MoviesRoutes)
+app.use('/atualizarusuario', atualizaruserRoutes)
 
 
 

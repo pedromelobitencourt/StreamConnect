@@ -30,7 +30,10 @@ router.get('/', function(req, res, next) {
                     {
                         request.session.username = data[count].username;
                         request.session.cpf = data[count].cpf;
-                        request.session.datanascimento = data[count].datanascimento;
+                        request.session.senha = data[count].senha;
+                        request.session.datanascimento = data[count].datanascimento
+
+                       
 
                         response.send('Senha correta');
                     }
