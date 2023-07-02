@@ -17,7 +17,7 @@
     <![endif]-->
 
     <!-- Estilo customizado -->
-    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="css/movies.css">
     <title>Filmes para todos - StreamConnect</title>
     <link rel="icon" href="imagens/icon.png">
 
@@ -87,14 +87,15 @@
     </header>
 
     <section id="home" class="d-flex">
-    <section class = "filmes">
+    
+  
 
   <div class = "container-movie">
     <div class = "flex-wrapper">
 
       <div class = "little-wrapper">
         
-        <p class="section-subtitle">Bem vindo <%=session.username %></p>
+        <p class="section-subtitle">Bem vindo, <%=session.username %></p>
 
         <h2 class="h2-section-title">Filmes no catálogo</h2>
 <!-- Parte de bem vindo do usuario e titulo dos filmes
@@ -129,7 +130,8 @@
 
 <ul class="movies-list">
 
-  <li>
+  <li class = "movies-list-itens">
+      
     <div class="movie-card">
 
       <a href="/">
@@ -162,11 +164,120 @@
         </div>
       </div>
 
-    </div>
+    </div>  
+  </li>
+
+  <li class = "movies-list-itens">
+      
+    <div class="movie-card">
+
+      <a href="/">
+        <figure class="card-banner">
+          <img src="imgMovies/ant man.jpg" alt="">
+        </figure>
+      </a>
+
+      <div class="title-wrapper">
+        <a href="/">
+          <h3 class="card-title">titulo de teste</h3>
+        </a>
+
+        <time datetime="">Ano: 2023</time>
+      </div>
+
+      <div class="card-meta">
+        <div class="badge badge-outline">Qualidade: HD</div>
+
+        <div class="duration">
+          <ion-icon name="time-outline"></ion-icon>
+
+          <time datetime="PT137M">Duração: 120</time>
+        </div>
+
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+
+          <data></data>
+        </div>
+      </div>
+
+    </div>  
   </li>
 
   
-  
+  <li class = "movies-list-itens">
+      
+    <div class="movie-card">
+
+      <a href="/">
+        <figure class="card-banner">
+          <img src="imgMovies/ant man.jpg" alt="">
+        </figure>
+      </a>
+
+      <div class="title-wrapper">
+        <a href="/">
+          <h3 class="card-title">titulo de teste</h3>
+        </a>
+
+        <time datetime="">Ano: 2023</time>
+      </div>
+
+      <div class="card-meta">
+        <div class="badge badge-outline">Qualidade: HD</div>
+
+        <div class="duration">
+          <ion-icon name="time-outline"></ion-icon>
+
+          <time datetime="PT137M">Duração: 120</time>
+        </div>
+
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+
+          <data></data>
+        </div>
+      </div>
+
+    </div>  
+  </li>
+
+  <li class = "movies-list-itens">
+      
+    <div class="movie-card">
+
+      <a href="/">
+        <figure class="card-banner">
+          <img src="imgMovies/ant man.jpg" alt="">
+        </figure>
+      </a>
+
+      <div class="title-wrapper">
+        <a href="/">
+          <h3 class="card-title">titulo de teste</h3>
+        </a>
+
+        <time datetime="">Ano: 2023</time>
+      </div>
+
+      <div class="card-meta">
+        <div class="badge badge-outline">Qualidade: HD</div>
+
+        <div class="duration">
+          <ion-icon name="time-outline"></ion-icon>
+
+          <time datetime="PT137M">Duração: 120</time>
+        </div>
+
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+
+          <data></data>
+        </div>
+      </div>
+
+    </div>  
+  </li>
   
 
 </ul>
@@ -179,7 +290,7 @@
       
         
       
-    </section> 
+    
     </section>
     
     
