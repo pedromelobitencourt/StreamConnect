@@ -182,7 +182,49 @@
 
 
 </div>  
-  
+<ul class="movies-list">
+  <% for(var j=0; j<data2.length; j++) {%>
+
+  <li class = "movies-list-itens">
+      
+    <div class="movie-card">
+
+      <a href="/">
+        <figure class="card-banner">
+          <img src="imgMovies/<%=data2[j].nome%>.jpg" alt="">
+        </figure>
+      </a>
+
+      <div class="title-wrapper">
+        <a href="/">
+          <h3 class="card-title"><%=data2[j].nome%></h3>
+        </a>
+
+        <time datetime="">Ano: <%=data2[j].ano%></time>
+      </div>
+
+      <div class="card-meta">
+        <div class="badge badge-outline">Classificação: <%-data2[j].classificacao%></div>
+
+        <div class="duration">
+          <ion-icon name="time-outline"></ion-icon>
+
+          <time datetime="PT137M">Nota IMDB: <%-data2[j].notaimdb%></time>
+        </div>
+
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+
+          <data></data>
+        </div>
+      </div>
+
+    </div>  
+  </li>
+  <% } %>
+   
+
+</ul> 
 
 
 
