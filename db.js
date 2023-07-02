@@ -3,9 +3,11 @@ const mysql =  require('mysql')
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password:"legal2002",
-    database: "streamconnect"
+    password:"12345678",
+    database: "StreamConnect"
 
 })
 
 module.exports = connection;
+
+//

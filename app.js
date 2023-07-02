@@ -2,6 +2,8 @@ const express = require('express')
 const homeRoutes = require('./routes/home.js')
 const bodyParser = require('body-parser')
 const signinRoutes = require('./routes/signin.js')
+const carrinhoRoutes = require('./routes/carrinho.js')
+const carrinhoRoutes2 = require('./routes/carrinho_qualidade.js')
 const session = require('express-session')
 
 
@@ -24,9 +26,12 @@ app.set('view engine','ejs')
 app.listen(8800)
 //teste
 console.log('test')
+
 //incializando as rotas
 app.use('/',homeRoutes)
 app.use('/signin',signinRoutes)
+app.use('/carrinho',carrinhoRoutes)
+app.use('/carrinho_qualidade',carrinhoRoutes2)
 
 
 

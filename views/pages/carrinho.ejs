@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Carrinho</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <h1 class="mt-5 mb-5 text-center text-primary"><b>Carrinho de compras</b></h1>
+
+            <div class="row mt-5">
+                <div class="col-md-3">&nbsp;</div>
+                <div class="col-md-6">
+                <% if(session.username) { %>
+                    <% if((session.FilmeEncontrado) && (session.FilmeEncontrado !== null)) { %>
+
+                        <h1>Comprar <%=session.FilmeEncontrado %> ?</h1>
+                        
+                        <h2>
+                            <title>Atualização de Valor</title>
+                            <script>
+                              function atualizarValor(valor) {
+                                document.getElementById("price1").textContent = valor;
+                              }
+                            </script>
+
+                            <h2>Total: R$ <span id="price1">0</span>,00</h2>
+
+                            <h3>Qualidade:
+                                <button onclick="atualizarValor(50); setQualidade('4K')">4K</button>
+                                <button onclick="atualizarValor(40); setQualidade('1080p')">1080p</button>
+                                <button onclick="atualizarValor(30); setQualidade('720p')">720p</button>
+                            </h3>
+                        </h2>
+
+                        <script>
+                            function atualizarValor(valor) {
+                              document.getElementById("price1").textContent = valor;
+                              document.getElementById("price1-input").value = valor;
+                            }
+                          </script>
+
+                        <div class="card-body">
+                        <form method="post" action="/carrinho">
+                            <div class="mb-3">
+                                <input type="hidden" id="price1-input" name="price1" value="0">
+                                <input type="hidden" id="qualidade1-input" name="qualidade1" value="">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Concluir compra</button>
+                        </form>
+                        </div>
+                        <br>
+                        <br>
+
+
+                        <h1>Alugar <%=session.FilmeEncontrado %> ?</h1>
+                        
+                        <h2>
+                            <title>Atualização de Valor 2</title>
+                            <script>
+                              function atualizarValor2(valor) {
+                                document.getElementById("price2").textContent = valor;
+                              }
+                            </script>
+
+                            <h2>Total: R$ <span id="price2">0</span>,00</h2>
+                            
+
+                            <h2>Qualidade:
+                                <button onclick="atualizarValor2(25); setQualidade2('4K')">4K</button>
+                                <button onclick="atualizarValor2(15); setQualidade2('1080p')">1080p</button>
+                                <button onclick="atualizarValor2(7); setQualidade2('720p')">720p</button>
+                            </h2>
+                        </h2>
+
+                        <script>
+                            function atualizarValor2(valor) {
+                              document.getElementById("price2").textContent = valor;
+                              document.getElementById("price2-input").value = valor;
+                            }
+                          </script>
+
+                        <div class="card-body">
+                        <form method="post" action="/carrinho">
+                            <div class="mb-3">
+                                <input type="hidden" id="price2-input" name="price2" value="0">
+                                <input type="hidden" id="qualidade2-input" name="qualidade2" value="">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Concluir aluguel</button>
+                        </form>
+                        </div>
+                        
+                        <br>
+                        <br>
+
+                        <script>
+                            function setQualidade(qualidade) {
+                              document.getElementById("qualidade1-input").value = qualidade;
+                            }
+                          
+                            function setQualidade2(qualidade) {
+                              document.getElementById("qualidade2-input").value = qualidade;
+                            }
+                          </script>
+                          
+    
+                        <% } else { %>
+
+                            <div class="card">
+                                <div class="card-header">Adicionar ao carrinho</div>
+                                <div class="card-body">
+                                    <form method="post" action="/carrinho">
+                                        <div class="mb-3">
+                                            <label>Movie Name</label>
+                                            <input type="movie" name="movie" class="form-control"/>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="submit" class="btn btn-primary" value="Pesquisar" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        <% } %>
+
+                    <% } else { %>
+                        <div class="card">
+                            <div class="card-header">Não logado!</div>
+                        </div>
+                    <% } %>
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
