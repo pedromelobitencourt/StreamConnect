@@ -1,7 +1,8 @@
 const express = require('express')
-const homeRoutes = require('./routes/home.js')
 const bodyParser = require('body-parser')
+const homeRoutes = require('./routes/home.js')
 const signinRoutes = require('./routes/signin.js')
+const MoviesRoutes = require('./routes/movies.js')
 const session = require('express-session')
 
 
@@ -27,6 +28,7 @@ console.log('test')
 //incializando as rotas
 app.use('/',homeRoutes)
 app.use('/signin',signinRoutes)
+app.use('/movies',MoviesRoutes)
 
 
 
