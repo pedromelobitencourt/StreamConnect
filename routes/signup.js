@@ -22,7 +22,7 @@ router.post('/', function(request, response, next) { // Registrar
             return;
         }
 
-        query = `INSERT INTO usuario VALUES 
+        query = `INSERT INTO usuario (cpf, username, datanascimento, senha) VALUES 
         ("${cpf}", "${username}", "${dataNascimento}", "${senha}");`;
 
         database.query(query, function(error, data) {

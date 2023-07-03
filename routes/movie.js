@@ -8,7 +8,7 @@ router.post('/', function(req, res, next) {
     var cpf = req.session.cpf;
 
     if(rate && filme && cpf) {
-        query = `INSERT INTO avaliacao
+        query = `INSERT INTO avaliacao (id_filme, cpf_usuario, data, nota)
         VALUES(${filme}, "${cpf}", CURDATE(), ${rate});`;
 
         database.query(query, function(error1, data1) {

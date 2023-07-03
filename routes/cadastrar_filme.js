@@ -49,13 +49,13 @@ router.post('/', function(request, response, next) { // Registrar
     console.log(request.body);
     var generos = request.body.generos;
 
-    database.query("SELECT MAX(id) 'id' FROM filme;", function error(error, idmax){
+    database.query("SELECT MAX(id) 'id' FROM filme;", function error(error, idmax) {
         if(error) {
             console.log(error);
         } else {
             console.log(idmax);
             var id = idmax[0].id + 1 
-            query = `INSERT INTO filme VALUES 
+            query = `INSERT INTO filme (id, nome, ano, diretor, notaimdb, classificacao, sinopse) VALUES 
             ("${id}", "${nomefilme}", "${ano}", "${diretor}", "${nota}", "${classificacao}", "${sinopse}");`;
     
             database.query(query, function(error, resultado) {

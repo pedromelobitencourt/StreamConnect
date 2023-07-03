@@ -119,7 +119,10 @@
               <td><%= data[i].sinopse %></td>
               <td>
                 <button onclick="editarFilme('<%= data[i].id  %>')"  class="btn btn-primary" >Editar</button>
-                <button onclick="deletarFilme('<%= data[i].id  %>')"  class="btn btn-primary">Deletar</button>
+
+                <a href="/administracao?id= <%= data[i].id  %>" name="deletar">
+                  <button class="btn btn-primary">Deletar</button>
+                </a>
               </td>
             </tr>
           <% } %>
@@ -127,19 +130,5 @@
       </table>
   </div>
  
-
-  <script>
-    function cadastrarFilme() {
-      
-    }
-
-    function editarFilme(id) {
-      // Implemente a lógica para editar o filme com o ID especificado
-    }
-
-    function deletarFilme(id) {
-      // Implemente a lógica para deletar o filme com o ID especificado
-    }
-  </script>
 </body>
 </html>
