@@ -6,7 +6,7 @@ const session = require('express-session');
 
 router.get('/', function(req, res, next) {
 
-    if(!req.session.username) { // Não está logado
+    if(!req.session.username || req.session.cpf !== "0") { // Não está logado
         res.redirect('signin');
         return;
     }
