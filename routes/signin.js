@@ -21,7 +21,7 @@ router.post('/', function(request, response, next){
 
         database.query(query, function(error, data){
           console.log(data);
-
+           
             if(data.length > 0)
             {
                 for(var count = 0; count < data.length; count++)
