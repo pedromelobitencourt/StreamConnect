@@ -38,24 +38,27 @@ router.get('/', function(req, res, next) {
 
     if(price1)
     {
-
         query = `
         INSERT INTO pedido (id, id_filme, cpf_usuario, tipo, qualidade, preco) 
           VALUES (${idCount}, ${request.session.FilmeEncontradoId}, "${request.session.cpf}", 'C', '${qualidade1}', ${price1})
         `;
 
-        database.query(query, function(error, data){
-          console.log(price1);
-          console.log(qualidade1);    
-          console.log(request.session.FilmeEncontrado); 
-          console.log(request.session.cpf); 
+        idCount++;
 
-          idCount++;
-          request.session.FilmeEncontrado = null;
-          console.log(request.session.FilmeEncontrado); 
-          response.redirect('/movies');
+        response.redirect('/payment?query=' + query);
 
-        });
+        // database.query(query, function(error, data){
+        //   console.log(price1);
+        //   console.log(qualidade1);    
+        //   console.log(request.session.FilmeEncontrado); 
+        //   console.log(request.session.cpf); 
+
+        //   idCount++;
+        //   request.session.FilmeEncontrado = null;
+        //   console.log(request.session.FilmeEncontrado); 
+        //   response.redirect('/movies');
+
+        // });
 
         
     }
@@ -67,18 +70,21 @@ router.get('/', function(req, res, next) {
           VALUES (${idCount}, ${request.session.FilmeEncontradoId}, "${request.session.cpf}", 'A', '${qualidade2}', ${price2})
         `;
 
-        database.query(query, function(error, data){
-          console.log(data);
-          console.log(price2);
-          console.log(qualidade2);    
-          console.log(request.session.FilmeEncontrado); 
-          console.log(request.session.cpf); 
+        idCount++;
 
-          idCount++;
-          request.session.FilmeEncontrado = null;
-          console.log(request.session.FilmeEncontrado); 
-          response.redirect('/movies');
-        });
+        response.redirect('/payment?query=' + query);
+        // database.query(query, function(error, data){
+        //   console.log(data);
+        //   console.log(price2);
+        //   console.log(qualidade2);    
+        //   console.log(request.session.FilmeEncontrado); 
+        //   console.log(request.session.cpf); 
+
+        //   idCount++;
+        //   request.session.FilmeEncontrado = null;
+        //   console.log(request.session.FilmeEncontrado); 
+        //   response.redirect('/movies');
+        // });
 
     }
     // response.redirect('/movies');

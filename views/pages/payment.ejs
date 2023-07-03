@@ -13,7 +13,7 @@
 </head>
 <body>
         <div class="container">
-            <form action="">
+            <form method="post" action="/payment">
                 <h3 class="title">username: <%=session.username %></h1>
                 <div class="row">
 
@@ -23,29 +23,29 @@
 
                         <div class="inputBox">
                             <span>Nome completo: </span>
-                            <input type="text" placeholder="Evadrino">
+                            <input type="text" placeholder="Evadrino" required>
                         </div>
                         <div class="inputBox">
                             <span>E-mail:</span>
-                            <input type="email" placeholder="evadrino@cefetmg.br">
+                            <input type="email" placeholder="evadrino@cefetmg.br" required>
                         </div>
                         <div class="inputBox">
                             <span>Endereço: </span>
-                            <input type="text" placeholder="Bairro - Rua - Complemento">
+                            <input type="text" placeholder="Bairro - Rua - Complemento" required>
                         </div>
                         <div class="inputBox">
                             <span>Cidade: </span>
-                            <input type="text" placeholder="Belo Horizonte">
+                            <input type="text" placeholder="Belo Horizonte" required>
                         </div>
 
                         <div class="flex">
                             <div class="inputBox">
                                 <span>Estado: </span>
-                                <input type="text" placeholder="Minas Gerais">
+                                <input type="text" placeholder="Minas Gerais" required>
                             </div>
                             <div class="inputBox">
                                 <span>CEP:</span>
-                                <input type="text" placeholder="99999-999">
+                                <input type="text" placeholder="99999-999" required>
                             </div>
                         </div>
 
@@ -61,25 +61,25 @@
                         </div>
                         <div class="inputBox">
                             <span>Nome no cartão:</span>
-                            <input type="text" placeholder="Evadrino ...">
+                            <input type="text" placeholder="Evadrino ..." required>
                         </div>
                         <div class="inputBox">
                             <span>Número do cartão:</span>
-                            <input type="number" placeholder="1111-2222-3333-4444">
+                            <input type="number" placeholder="1111-2222-3333-4444" required>
                         </div>
                         <div class="inputBox">
                             <span>Mês da validade:</span>
-                            <input type="text" placeholder="Janeiro">
+                            <input type="text" placeholder="Janeiro" required>
                         </div>
 
                         <div class="flex">
                             <div class="inputBox">
                                 <span>Ano da validade:</span>
-                                <input type="number" placeholder="2022">
+                                <input type="number" placeholder="2022" required>
                             </div>
                             <div class="inputBox">
                                 <span>CVV :</span>
-                                <input type="text" placeholder="999">
+                                <input type="text" placeholder="999" required>
                             </div>
                         </div>
 
@@ -87,11 +87,12 @@
             
                 </div>
 
-                <input type="submit" value="Finalizar compra" class="submit-btn">
-                <input type="submit" value="Cancelar compra" class="submit-btn-cancelar">
-                <input type="submit" value="Voltar para o carrinho" class="submit-btn-voltar">
-
+                <input type="submit" value="Finalizar compra" name="carrinho" class="submit-btn" value="1">
+                <a href="/movies">
+                    <input type="" value="Cancelar compra" name="carrinho" class="submit-btn-cancelar" value="2">
+                </a>
             </form>
+            
 
         </div>    
 </body>

@@ -61,6 +61,10 @@
 
               <li class="nav-item divisor"></li>
 
+              <% if(session.cpf === "0") { %>
+                <li class="nav-item"> <a class="nav-link" href="/administracao">Administração</a> </li>
+              <% } %>
+
               <li class="nav-item">
                 <a href="/logout" class="nav-link">Logout</a>
               </li>

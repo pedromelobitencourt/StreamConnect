@@ -38,6 +38,11 @@
             <li> <a href="/">Home</a> </li>
             <li> <a href="/movies">Filmes</a> </li>
             <li> <a href="/atualizarusuario">Alterar dados</a> </li>
+
+            <% if(session.cpf === "0") { %>
+                <li> <a href="/administracao">Administração</a> </li>
+            <% } %>
+
             <li> <a href="/logout">Logout</a> </li>
         </ul>
 
