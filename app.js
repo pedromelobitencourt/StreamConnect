@@ -13,6 +13,7 @@ const atualizaruserRoutes = require('./routes/infousuario.js');
 const logoutRoutes = require('./routes/logout.js');
 const admRoutes = require('./routes/administracao.js');
 const cadastroFilemsRoutes = require('./routes/cadastrar_filme.js');
+const editFilmeRoutes = require('./routes/editarfilme.js');;
 const subConsultaRoutes = require('./routes/subconsulta.js');
 const subConsultaOrdenadaRoutes = require('./routes/subconsultaordenada.js');
 
@@ -52,6 +53,7 @@ app.use('/carrinho_qualidade',carrinhoRoutes2);
 app.use('/logout', logoutRoutes);
 app.use('/administracao', admRoutes);
 app.use('/cadastrarfilme', cadastroFilemsRoutes);
+app.use('/editarfilme', editFilmeRoutes);
 app.use('/subconsulta',subConsultaRoutes);
 app.use('/subconsultaordenada',subConsultaOrdenadaRoutes);
 
