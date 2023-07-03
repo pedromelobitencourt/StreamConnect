@@ -1,0 +1,138 @@
+html, body, #home {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+nav.navbar-transparente {
+  padding: 15px 0px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #9bf0e1;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.divisor {
+  width: 1px;
+  background: white;
+  margin: 12px 15px;
+}
+
+body {
+    background: url(../imagens/capa.png),
+                url(../imagens/ruido.png),
+                linear-gradient(50deg, #b93b57, #2b07f9);
+    background-attachment: fixed;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+  }
+  
+  .tabela {
+    margin: 100px;
+    padding: 20px;
+    background: url(../imagens/capa.png),
+                url(../imagens/ruido.png),
+                linear-gradient(50deg, #b93b57, #2b07f9);
+    background-attachment: fixed;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    align-items: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  table th {
+    background: url(../imagens/capa.png),
+        url(../imagens/ruido.png),
+        linear-gradient(50deg, #b93b57, #2b07f9);
+    background-attachment: fixed;
+    font-weight: bold;
+
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+.formcontainer{
+  margin: 120px;
+  padding: 20px;
+  background: url(../imagens/capa.png),
+              url(../imagens/ruido.png),
+              linear-gradient(50deg, #b93b57, #2b07f9);
+  background-attachment: fixed;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  align-items: center;
+
+  margin-left: 720px;
+
+  width: 250px;
+}
+
+.form-container {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+nav.navbar-transparente {
+  padding: 15px 0px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #9bf0e1;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(0, 0, 0, 5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.divisor {
+  width: 1px;
+  background: white;
+  margin: 12px 15px;
+}
+
+.nav-item .btnLogin-popup {
+  width: 120px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #fff;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+
+.nav-item .btnLogin-popup:hover {
+  background: #7c8080;
+}

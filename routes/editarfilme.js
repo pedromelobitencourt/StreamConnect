@@ -16,10 +16,10 @@ router.get('/', function(req, res, next) {
                 console.log(error);
             }
             else{
-                console.log(data)
+                console.log(data);
                 res.render('pages/editarfilme', {session : req.session, data: data});
             }
-        })
+        });
     }
 });
 
@@ -34,7 +34,7 @@ router.post('/', function(request, response, next){
 
    query = `
    UPDATE filme
-   SET nome = "${nomeFilme}", ano = ${ano}, diretor = "${diretor}", notaimdb = ${nota}, classificacao = ${classificacao}, sinopse = "${sinopse}"
+   SET nome = "${nomefilme}", ano = ${ano}, diretor = "${diretor}", notaimdb = ${nota}, classificacao = ${classificacao}, sinopse = "${sinopse}"
    WHERE id = ${id};
    `;
         
@@ -47,12 +47,9 @@ router.post('/', function(request, response, next){
             if(error){
                 console.log(error)
             } else{
-                delete req.query.id;
-                response.redirect('administracao');
+                response.redirect('administracao')
                 response.end();
-            }
-           
-
+            }  
         });
 });
 
