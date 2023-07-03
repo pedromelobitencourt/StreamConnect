@@ -465,6 +465,20 @@ footer ul li {
     --ionicon-stroke-width: 50px;
     color: #9bf0e1;
   }
+/*search-box*/
+.search-container{
+    padding-left: 400px;
+}
+.search-container input{
+    width: 300px;
+}
+.search-container button{
+    
+    cursor: pointer; 
+}
+.search-container button:hover {
+    background: #ccc;
+  }
 
   .movies-list .movie-card form {
     align-items: center;

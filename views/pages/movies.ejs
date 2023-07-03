@@ -53,6 +53,13 @@
             <i class="fas fa-bars text-white"></i>
           </button>
 
+          <div class="search-container">
+            <form method= "post" action="/movies">
+              <input type="text" name = "busca" placeholder="Search.." >
+              <button type="submit" value="Login">Buscar</button>
+            </form>
+          </div>
+
           <div class="collapse navbar-collapse" id="nav-principal">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
@@ -97,9 +104,14 @@
 <!-- Parte de bem vindo do usuario e titulo dos filmes
       -->
     </div>
-    <!--   
-    <div class = "filter-page">
       
+    <div class = "filter-page">
+   
+    </div>
+
+      
+    <!--cartoes de filmes-->  
+ <!--   
       <ul class="filter-list">
  
         <li>
@@ -115,12 +127,7 @@
         </li>
 
       </ul>
-      
-    </div>-->
-
-      
-    <!--cartoes de filmes-->  
-
+      -->
 
 
     </div>
@@ -178,7 +185,7 @@
 
 </ul>
 
-
+<% if(data2.length>0){%>
 <div class = "flex-wrapper">
 
   <div class = "little-wrapper">
@@ -236,6 +243,61 @@
    
 
 </ul> 
+<% }%>
+
+<% if(data3.length>0){%>
+<div class = "flex-wrapper">
+
+  <div class = "little-wrapper">
+    <h2 class="h2-section-title">Filmes Comprados/alugados </h2>
+</div>
+
+
+</div>  
+<ul class="movies-list">
+  <% for(var x=0; x<data3.length; x++) {%>
+
+  <li class = "movies-list-itens">
+      
+    <div class="movie-card">
+
+      <a href="/">
+        <figure class="card-banner">
+          <img src="imgMovies/<%=data3[x].nome%>.jpg" alt="">
+        </figure>
+      </a>
+
+      <div class="title-wrapper">
+        <a href="/">
+          <h3 class="card-title"><%=data3[x].nome%></h3>
+        </a>
+
+        <time datetime="">Ano: <%=data3[x].ano%></time>
+      </div>
+
+      <div class="card-meta">
+        <div class="badge badge-outline">Classificação: <%-data3[x].classificacao%></div>
+
+        <div class="duration">
+          <ion-icon name="time-outline"></ion-icon>
+
+          <time datetime="PT137M">Nota IMDB: <%-data3[x].notaimdb%></time>
+        </div>
+
+        <div class="rating">
+          <ion-icon name="star"></ion-icon>
+
+          <data></data>
+        </div>
+      </div>
+
+    </div>  
+  </li>
+  <% } %>
+   
+
+</ul> 
+<% }%>
 
 
 
