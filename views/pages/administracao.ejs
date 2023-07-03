@@ -118,7 +118,9 @@
               <td><%= data[i].classificacao %></td>
               <td><%= data[i].sinopse %></td>
               <td>
-                <button onclick="editarFilme('<%= data[i].id  %>')"  class="btn btn-primary" >Editar</button>
+                <a href="/editarfilme?id=<%= data[i].id  %>">
+                  <button class="btn btn-primary" >Editar</button>
+                </a>
                 <button onclick="deletarFilme('<%= data[i].id  %>')"  class="btn btn-primary">Deletar</button>
               </td>
             </tr>
