@@ -465,3 +465,24 @@ footer ul li {
     --ionicon-stroke-width: 50px;
     color: #9bf0e1;
   }
+
+  .movies-list .movie-card form {
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+.movies-list .movie-card form button {
+    /* background-color: transparent; */
+    color: white;
+    font-family: sans-serif;
+    box-shadow: none;
+    font-weight: 700;
+    outline: none;
+    background: linear-gradient(to bottom, rgba(87, 5, 117, 0.7), rgba(49, 7, 255, 0.7));
+}
+
+.movies-list .movie-card form button:hover {
+    background: linear-gradient(to bottom, rgb(17, 47, 129), rgb(20, 249, 249));
+}

@@ -164,6 +164,13 @@
         </div>
       </div>
 
+      <form name="adicionar" method="post" action="/movies">
+        <div>
+          <button href="#" type="submit" name="item1" value="<%= data[i].id %>">Adicionar à lista de desejos</button>
+        </div>
+      </form>
+
+
     </div>  
   </li>
   <% } %>
@@ -176,7 +183,7 @@
 
   <div class = "little-wrapper">
     <h2 class="h2-section-title">Deseja assistir </h2>
-</div>
+
 
 
 </div>  
@@ -187,14 +194,14 @@
       
     <div class="movie-card">
 
-      <a href="/movie?id=<%= data[i].id %>">
+      <a href="/movie?id=<%= data2[j].id %>">
         <figure class="card-banner">
           <img src="imgMovies/<%=data2[j].nome%>.jpg" alt="">
         </figure>
       </a>
 
       <div class="title-wrapper">
-        <a href="/movie?id=<%= data[i].id %>">
+        <a href="/movie?id=<%= data2[j].id %>">
           <h3 class="card-title"><%=data2[j].nome%></h3>
         </a>
 
@@ -217,6 +224,12 @@
         </div>
       </div>
 
+      <form name="remover" method="post" action="/movies">
+        <div>
+          <button href="#" type="submit" name="item2" value="<%= data2[j].id %>">Remover da lista de desejos</button>
+        </div>
+      </form>
+
     </div>  
   </li>
   <% } %>
@@ -228,6 +241,7 @@
 
   
   </div>
+</div>
 
 
       
