@@ -3,8 +3,13 @@ const router = express.Router();
 const database = require('../db.js');
 
 router.get('/', function(req, res, next) {
-    res.render('pages/infousuario',{ session : req.session} );
-  });
+    if(!req.session.username) { // Não está logado
+        res.redirect('movies');
+    }
+
+    else
+        res.render('pages/infousuario',{ session : req.session} );
+});
 
   router.post('/', function(request, response, next){
 
@@ -67,10 +72,10 @@ router.get('/', function(req, res, next) {
                     }
                     console.log(result);
                     response.send('Dados Atualizados com sucesso\n' );
-                    response.end();
+                    //response.end();
                 }
-              })
+              });
     }
-})
+});
 
 module.exports = router;

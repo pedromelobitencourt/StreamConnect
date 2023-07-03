@@ -3,7 +3,11 @@ const router = express.Router();
 const database = require('../db.js');
 
 router.get('/', function(req, res, next) {
-    res.render('pages/signin', { session : req.session} );
+    if(req.session.username) { // Não está logado
+        res.redirect('movies');
+    }
+    else
+        res.render('pages/signin', { session : req.session} );
 });
 
 router.post('/', function(request, response, next){
@@ -20,7 +24,7 @@ router.post('/', function(request, response, next){
         `;
 
         database.query(query, function(error, data){
-          console.log(data);
+        //   console.log(data);
            
             if(data.length > 0)
             {
@@ -37,7 +41,7 @@ router.post('/', function(request, response, next){
                     
 
                         // response.send('Senha correta');
-                        response.redirect('signin');
+                        response.redirect('movies');
                     }
                     else
                     {

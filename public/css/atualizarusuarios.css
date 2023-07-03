@@ -82,8 +82,17 @@ body {
               linear-gradient(50deg, #b93b57, #2b07f9);
   background-attachment: fixed;
   border-radius: 5px;
+  background: rgba(0, 0, 0, 0.6);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   align-items: center;
+
+  margin-left: 720px;
+
+  width: 250px;
+}
+
+.form-container {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 nav.navbar-transparente {

@@ -6,6 +6,11 @@ const session = require('express-session');
 
 router.get('/', function(req, res, next) {
 
+    if(!req.session.username) { // Não está logado
+        res.redirect('signin');
+        return;
+    }
+
     var cpf =  req.session.cpf;
     query = `
         SELECT * FROM filme

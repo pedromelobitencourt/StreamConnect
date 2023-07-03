@@ -5,7 +5,27 @@ const database = require('../db.js');
 let idCount = 0;
 
 router.get('/', function(req, res, next) {
-    res.render('pages/carrinho',{ session : req.session} );
+      if(!req.session.username) { // Não está logado
+        res.redirect('signin');
+        return;
+    }
+    
+    req.session.FilmeEncontradoId = req.query.id;
+
+    // Encontrar o nome do filme
+
+    query = `SELECT nome FROM filme 
+    WHERE id = ${req.session.FilmeEncontradoId};`;
+
+    database.query(query, function(error, data) {
+      if(!error) {
+        req.session.FilmeEncontrado = data[0].nome;
+        res.render('pages/carrinho',{ session : req.session} );
+      }
+      else {
+        res.send("Teve um erro no carrinho");
+      }
+    })
   });
 
   router.post('', function(request, response, next){
@@ -20,7 +40,7 @@ router.get('/', function(req, res, next) {
     {
         query = `
         SELECT * FROM filme
-        WHERE nome = "${movie}"
+        WHERE UPPER(nome) = UPPER("${movie}");
         `;
 
         database.query(query, function(error, data){
@@ -28,18 +48,8 @@ router.get('/', function(req, res, next) {
 
             if(data.length > 0)
             {
-                for(var count = 0; count < data.length; count++)
-                {
-                    if(data[count].nome == movie)
-                    {
-                        request.session.FilmeEncontrado = data[count].nome;
-                        request.session.FilmeEncontradoId = data[count].id;
-                    }
-                    else
-                    {
-                        response.send('Filme não encontrado');
-                    }
-                }
+              request.session.FilmeEncontrado = data[0].nome;
+              request.session.FilmeEncontradoId = data[0].id;
             }
             response.end();
         });
@@ -58,7 +68,6 @@ router.get('/', function(req, res, next) {
         `;
 
         database.query(query, function(error, data){
-          console.log(data);
         });
 
         console.log(price1);
@@ -92,6 +101,7 @@ router.get('/', function(req, res, next) {
         request.session.FilmeEncontrado = null;
         console.log(request.session.FilmeEncontrado); 
     }
+    // response.redirect('/movies');
 
 });
 module.exports = router;

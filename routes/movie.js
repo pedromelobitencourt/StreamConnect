@@ -39,86 +39,113 @@ router.get('/', function(req, res, next) {
         res.redirect('signin');
     }
     else {
-        req.body.filme = 3; // id do filme
-        var idFilme = req.body.filme;
+        console.log(req.query);
 
-        // Procurar o filme com base no id
-        query1 = `SELECT nome, ano, diretor, 
-        notaimdb, classificacao, sinopse 
-        FROM filme 
-        WHERE id = ${idFilme};`;
+        const id = req.query.id;
+        const cpf = req.session.cpf;
 
-        database.query(query1, function(error1, data1) {
+        // Ver se o usuário tem o filme
+        query = `SELECT * FROM pedido 
+        WHERE cpf_usuario = "${cpf}" AND 
+        id_filme = ${id}`;
 
-            if(data1.length > 0) { // Tem filme com o id
-                var filme = data1[0];
+        database.query(query, function(error, data) {
+            if(!error) {
+                if(data.length > 0) { // Já teve o filme
+                    for(let i = 0; i < data.length; i++) {
+                        if(data[i].tipo === "C" || data[i].tipo === "A") {
+                            var idFilme = id;
 
-                req.session.nomeFilme = filme.nome;
-                req.session.anoFilme = filme.ano;
-                req.session.diretorFilme = filme.diretor;
-                req.session.notaImdb = filme.notaimdb;
-                req.session.classificacaoFilme = filme.classificacao;
-                req.session.sinopseFilme = filme.sinopse;
-                req.session.idFilme = idFilme;
+                            req.session.qualidade = data[i].qualidade;
+
+                            // Procurar o filme com base no id
+                            query1 = `SELECT nome, ano, diretor, 
+                            notaimdb, classificacao, sinopse 
+                            FROM filme 
+                            WHERE id = ${idFilme};`;
+
+                            database.query(query1, function(error1, data1) {
+
+                                if(data1.length > 0) { // Tem filme com o id
+                                    var filme = data1[0];
+
+                                    req.session.nomeFilme = filme.nome;
+                                    req.session.anoFilme = filme.ano;
+                                    req.session.diretorFilme = filme.diretor;
+                                    req.session.notaImdb = filme.notaimdb;
+                                    req.session.classificacaoFilme = filme.classificacao;
+                                    req.session.sinopseFilme = filme.sinopse;
+                                    req.session.idFilme = idFilme;
 
 
-                // Categorias do filme
-                query2 = `SELECT nome_genero FROM tem 
-                WHERE id_filme = ${idFilme};`;
+                                    // Categorias do filme
+                                    query2 = `SELECT nome_genero FROM tem 
+                                    WHERE id_filme = ${idFilme};`;
 
-                var generos = "";
+                                    var generos = "";
 
-                database.query(query2, function(error2, data2) {
-                    if(!error2) {
-                        for(var i = 0; i < data2.length; i++) {
-                            var genero = data2[i].nome_genero;
+                                    database.query(query2, function(error2, data2) {
+                                        if(!error2) {
+                                            for(var i = 0; i < data2.length; i++) {
+                                                var genero = data2[i].nome_genero;
 
-                            generos += genero + ", ";
-                        }
+                                                generos += genero + ", ";
+                                            }
 
-                        if(generos[generos.length - 2] === ',')
-                            generos = generos.substring(0, generos.length - 2);
+                                            if(generos[generos.length - 2] === ',')
+                                                generos = generos.substring(0, generos.length - 2);
 
-                        req.session.generos = generos;
+                                            req.session.generos = generos;
 
-                        // Elenco
-                        query3 = `SELECT nome FROM elenco WHERE id_filme = ${idFilme};`;
+                                            // Elenco
+                                            query3 = `SELECT nome FROM elenco WHERE id_filme = ${idFilme};`;
 
-                        var elenco = "";
+                                            var elenco = "";
 
-                        database.query(query3, function(error3, data3) {
-                            console.log(data3);
-                            if(!error3) {
-                                for(var i = 0; i < data3.length; i++) {
-                                    var e = data3[i].nome;
+                                            database.query(query3, function(error3, data3) {
+                                                console.log(data3);
+                                                if(!error3) {
+                                                    for(var i = 0; i < data3.length; i++) {
+                                                        var e = data3[i].nome;
 
-                                    elenco += e + ", ";
+                                                        elenco += e + ", ";
+                                                    }
+
+                                                    if(elenco[elenco.length - 2] === ',')
+                                                        elenco = elenco.substring(0, elenco.length - 2);
+
+                                                    req.session.elencoFilme = elenco;
+                                                    res.render('pages/movie_page', { session : req.session } );
+                                                }
+                                                else {
+                                                    res.send(error3);
+                                                }
+                                            });
+
+                                            //res.render('pages/movie_page', { session : req.session } );
+                                        }
+                                        else {
+                                            res.send(error2);
+                                        }
+                                    });
+                                }
+                                else { // Erro
+                                    res.send("Não há o filme")
                                 }
 
-                                if(elenco[elenco.length - 2] === ',')
-                                    elenco = elenco.substring(0, elenco.length - 2);
-
-                                req.session.elencoFilme = elenco;
-                                res.render('pages/movie_page', { session : req.session } );
-                            }
-                            else {
-                                res.send(error3);
-                            }
-                        });
-
-                        //res.render('pages/movie_page', { session : req.session } );
+                                if(error1) res.send(error1);
+                            });
+                            break;
+                        }
                     }
-                    else {
-                        res.send(error2);
-                    }
-                });
+                }
+                else { // Não tem o filme
+                    res.redirect('/carrinho?id=' + id);
+                }
             }
-            else { // Erro
-                res.send("Não há o filme")
-            }
+        })
 
-            if(error1) res.send(error1);
-        });
+        
     }
 });
 
