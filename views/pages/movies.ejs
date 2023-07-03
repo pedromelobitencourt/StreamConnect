@@ -62,7 +62,7 @@
               <li class="nav-item divisor"></li>
 
               <li class="nav-item">
-                <a href="signin.html" class="nav-link">Logout</a>
+                <a href="/logout" class="nav-link">Logout</a>
               </li>
               
             </ul>
@@ -137,7 +137,7 @@
       </a>
 
       <div class="title-wrapper">
-        <a href="/">
+        <a href="/movie?id=<%= data[i].id %>">
           <h3 class="card-title"><%=data[i].nome%></h3>
         </a>
 
@@ -190,7 +190,7 @@
       </a>
 
       <div class="title-wrapper">
-        <a href="/">
+        <a href="/movie?id=<%= data[i].id %>">
           <h3 class="card-title"><%=data2[j].nome%></h3>
         </a>
 

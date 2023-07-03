@@ -4,11 +4,23 @@ const database = require('../db.js');
 
 router.get('/', function(req, res, next) {
     if(!req.session.username) { // Não está logado
-        res.redirect('movies');
+        res.redirect('signin');
     }
 
-    else
+    else {
+        var data = req.session.datanascimento;
+        var dataTimestamp = Date.parse(data);
+        var dataObjeto = new Date(dataTimestamp);
+
+        var ano = dataObjeto.getFullYear();
+        var mes = String(dataObjeto.getMonth() + 1).padStart(2, '0');
+        var dia = String(dataObjeto.getDate()).padStart(2, '0');
+        var dataString = `${ano}-${mes}-${dia}`;
+
+        req.session.datanascimento = dataString;
+
         res.render('pages/infousuario',{ session : req.session} );
+    }
 });
 
   router.post('/', function(request, response, next){

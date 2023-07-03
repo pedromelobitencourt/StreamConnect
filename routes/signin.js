@@ -51,7 +51,7 @@ router.post('/', function(request, response, next){
             }
             else
             {
-                response.send('Email errado');
+                response.send('Cpf incorreto');
             }
             response.end();
         });

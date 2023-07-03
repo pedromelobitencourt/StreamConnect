@@ -35,29 +35,6 @@ router.get('/', function(req, res, next) {
     var price2 = request.body.price2
     var qualidade1 = request.body.qualidade1;
     var qualidade2 = request.body.qualidade2;
-    
-    if(movie)
-    {
-        query = `
-        SELECT * FROM filme
-        WHERE UPPER(nome) = UPPER("${movie}");
-        `;
-
-        database.query(query, function(error, data){
-          console.log(data);
-
-            if(data.length > 0)
-            {
-              request.session.FilmeEncontrado = data[0].nome;
-              request.session.FilmeEncontradoId = data[0].id;
-            }
-            response.end();
-        });
-    }
-    else
-    {
-        response.end();
-    }
 
     if(price1)
     {
@@ -68,17 +45,19 @@ router.get('/', function(req, res, next) {
         `;
 
         database.query(query, function(error, data){
+          console.log(price1);
+          console.log(qualidade1);    
+          console.log(request.session.FilmeEncontrado); 
+          console.log(request.session.cpf); 
+
+          idCount++;
+          request.session.FilmeEncontrado = null;
+          console.log(request.session.FilmeEncontrado); 
+          response.redirect('/movies');
+
         });
 
-        console.log(price1);
-        console.log(qualidade1);    
-        console.log(request.session.FilmeEncontrado); 
-        console.log(request.session.cpf); 
-
-        idCount++;
-        request.session.FilmeEncontrado = null;
-        console.log(request.session.FilmeEncontrado); 
-
+        
     }
 
     if(price2)
@@ -90,16 +69,17 @@ router.get('/', function(req, res, next) {
 
         database.query(query, function(error, data){
           console.log(data);
+          console.log(price2);
+          console.log(qualidade2);    
+          console.log(request.session.FilmeEncontrado); 
+          console.log(request.session.cpf); 
+
+          idCount++;
+          request.session.FilmeEncontrado = null;
+          console.log(request.session.FilmeEncontrado); 
+          response.redirect('/movies');
         });
 
-        console.log(price2);
-        console.log(qualidade2);    
-        console.log(request.session.FilmeEncontrado); 
-        console.log(request.session.cpf); 
-
-        idCount++;
-        request.session.FilmeEncontrado = null;
-        console.log(request.session.FilmeEncontrado); 
     }
     // response.redirect('/movies');
 
