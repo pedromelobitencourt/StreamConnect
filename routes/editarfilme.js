@@ -32,25 +32,26 @@ router.post('/', function(request, response, next){
     var classificacao = request.body.classificacao;
     var sinopse = request.body.sinopse;
 
-    query = `
-        UPDATE filme
-        SET nome = ?, ano= ?, diretor = ?, notaimdb = ?, classificacao = ?, sinopse = ?
-        WHERE id = ?;
-        `;
-        values = [nomefilme, ano, diretor, nota, classificacao, sinopse, id]
-    
-        database.query(query,(error,resultado) => {
-            
-
-            if(error)throw error;
+   query = `
+   UPDATE filme
+   SET nome = "${nomeFilme}", ano = ${ano}, diretor = "${diretor}", notaimdb = ${nota}, classificacao = ${classificacao}, sinopse = "${sinopse}"
+   WHERE id = ${id};
+   `;
         
-            if(!error){
+        values = [nomefilme, ano, diretor, nota, classificacao, sinopse, id]
 
+        console.log("values: ");
+    
+        database.query(query, function(error,resultado){
+            console.log(resultado)
+            if(error){
+                console.log(error)
+            } else{
+                delete req.query.id;
                 response.redirect('administracao');
-                
+                response.end();
             }
-            response.redirect('administracao');
-            response.end();
+           
 
         });
 });
