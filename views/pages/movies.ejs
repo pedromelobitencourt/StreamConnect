@@ -94,7 +94,7 @@
   
 
   <div class = "container-movie">
-    <div class = "flex-wrapper">
+    <div class = "flex-wrapper"> <!-- TODOS OS FILMES -->
 
       <div class = "little-wrapper">
         
@@ -103,10 +103,6 @@
         <h2 class="h2-section-title">Todos os filmes </h2>
 <!-- Parte de bem vindo do usuario e titulo dos filmes
       -->
-    </div>
-      
-    <div class = "filter-page">
-   
     </div>
 
       
@@ -130,10 +126,11 @@
       -->
 
 
-    </div>
+    
         
 <!--cartoes de filmes-->
 
+<div>
 <ul class="movies-list">
   <% for(var i=0; i<data.length; i++) {%>
 
@@ -184,16 +181,16 @@
    
 
 </ul>
+</div>
+</div>
 
-<% if(data2.length>0){%>
-<div class = "flex-wrapper">
+<div class = "flex-wrapper"> <!-- DESEJA -->
 
   <div class = "little-wrapper">
     <h2 class="h2-section-title">Deseja assistir </h2>
-
-
-
-</div>  
+  </div> 
+  
+<div>
 <ul class="movies-list">
   <% for(var j=0; j<data2.length; j++) {%>
 
@@ -243,17 +240,18 @@
    
 
 </ul> 
-<% }%>
-
-<% if(data3.length>0){%>
-<div class = "flex-wrapper">
-
-  <div class = "little-wrapper">
-    <h2 class="h2-section-title">Filmes Comprados/alugados </h2>
+</div>
 </div>
 
+<% if(data3.length>0){%>
+<div class = "flex-wrapper"> <!-- Filmes comprados -->
 
-</div>  
+  <div class = "little-wrapper">
+    <h2 class="h2-section-title">Filmes Comprados/Alugados </h2>
+  </div>
+
+
+<div>
 <ul class="movies-list">
   <% for(var x=0; x<data3.length; x++) {%>
 
@@ -261,14 +259,14 @@
       
     <div class="movie-card">
 
-      <a href="/">
+      <a href="/movie?id=<%= data3[x].id %>">
         <figure class="card-banner">
           <img src="imgMovies/<%=data3[x].nome%>.jpg" alt="">
         </figure>
       </a>
 
       <div class="title-wrapper">
-        <a href="/">
+        <a href="/movie?id=<%= data3[x].id %>">
           <h3 class="card-title"><%=data3[x].nome%></h3>
         </a>
 
@@ -298,17 +296,10 @@
 
 </ul> 
 <% }%>
-
-
-
-  
-  </div>
+</div>  
 </div>
-
-
-      
-        
-      
+</div>
+ 
     
     </section>
     
