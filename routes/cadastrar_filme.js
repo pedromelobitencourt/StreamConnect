@@ -27,7 +27,6 @@ router.get('/', function(req, res, next) {
         });
     
 });
-bodyParser.urlencoded({ extended: true });
 
 router.post('/', function(request, response, next) { // Registrar
     var nomefilme = request.body.nome;
@@ -37,6 +36,7 @@ router.post('/', function(request, response, next) { // Registrar
     var classificacao = request.body.classificacao;
     var sinopse = request.body.sinopse;
     var atores = [];
+    if(request.body.id)
 
     for (let [key, value] of Object.entries(request.body)) {
         console.log(key, value);
