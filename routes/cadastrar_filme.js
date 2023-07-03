@@ -52,14 +52,14 @@ router.post('/', function(request, response, next) { // Registrar
     database.query("SELECT MAX(id) 'id' FROM filme;", function error(error, idmax){
         if(error) {
             console.log(error);
-        } else{
+        } else {
             console.log(idmax);
             var id = idmax[0].id + 1 
             query = `INSERT INTO filme VALUES 
             ("${id}", "${nomefilme}", "${ano}", "${diretor}", "${nota}", "${classificacao}", "${sinopse}");`;
     
             database.query(query, function(error, resultado) {
-            if(error){
+            if(error) {
                 console.log(error);
 
             }else{
@@ -83,7 +83,6 @@ router.post('/', function(request, response, next) { // Registrar
                         
                                     }else{
                                         console.log(resultado);
-                                        response.redirect('/administracao');
                                         return;  
                                     }
                                     });
@@ -94,7 +93,9 @@ router.post('/', function(request, response, next) { // Registrar
             }
             });
         }
-    })
+    });
+    response.redirect('administracao');
+    response.end();
 });
 
     

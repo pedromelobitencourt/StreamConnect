@@ -70,6 +70,7 @@ router.post('/', function(req, res, next) {
     var busca =  req.body.busca;
     console.log(busca)
     var cpf =  req.session.cpf;
+    
     if(busca==''){
         
         query = `
