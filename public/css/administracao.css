@@ -314,3 +314,8 @@ footer ul li {
     padding: 15px 8px; /* Adição para aumentar a distância entre as linhas */
     border-bottom: 1px solid #ddd;
   }
+
+.consulta{
+    padding-top: 20px;
+    font-size: 20px;
+}
