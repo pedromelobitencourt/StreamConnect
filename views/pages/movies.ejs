@@ -29,14 +29,8 @@
 
 
     <div id = "sidebar">
-      <a href="" class="sidebar-item">
-        <div>Carrinho</div>
-      </a>
-      <a href="" class="sidebar-item">
+      <a href="/atualizarusuario" class="sidebar-item">
         <div>Informações da conta</div>
-      </a>
-      <a href="" class="sidebar-item">
-        <div>Avaliar filmes</div>
       </a>
     </div>
 
@@ -74,8 +68,12 @@
 
               <li class="nav-item divisor"></li>
 
+              <% if(session.cpf === "0") { %>
+                <li class="nav-item"> <a class="nav-link" href="/administracao">Administração</a> </li>
+              <% } %>
+
               <li class="nav-item">
-                <a href="signin.html" class="nav-link">Logout</a>
+                <a href="/logout" class="nav-link">Logout</a>
               </li>
               
             </ul>
@@ -143,14 +141,14 @@
       
     <div class="movie-card">
 
-      <a href="/">
+      <a href="/movie?id=<%= data[i].id %>"">
         <figure class="card-banner">
           <img src="imgMovies/<%=data[i].nome%>.jpg" alt="">
         </figure>
       </a>
 
       <div class="title-wrapper">
-        <a href="/">
+        <a href="/movie?id=<%= data[i].id %>">
           <h3 class="card-title"><%=data[i].nome%></h3>
         </a>
 
@@ -196,14 +194,14 @@
       
     <div class="movie-card">
 
-      <a href="/">
+      <a href="/movie?id=<%= data[i].id %>">
         <figure class="card-banner">
           <img src="imgMovies/<%=data2[j].nome%>.jpg" alt="">
         </figure>
       </a>
 
       <div class="title-wrapper">
-        <a href="/">
+        <a href="/movie?id=<%= data[i].id %>">
           <h3 class="card-title"><%=data2[j].nome%></h3>
         </a>
 
@@ -357,6 +355,29 @@
 
 
     <!-- JavaScript (Opcional) -->
+
+
+    <script>
+      function sendRequest(movieId) {
+        console.log("O id");
+        // Enviar o ID do filme para a rota "/movie" usando fetch
+        fetch('/movie', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ id: movieId })
+        })
+        .then(response => {
+          // Lidar com a resposta do servidor, se necessário
+        })
+        .catch(error => {
+          // Lidar com erros, se necessário
+        });
+      }
+    </script>
+    
+
     <script src="scripts/script_sidebar.js"></script>
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

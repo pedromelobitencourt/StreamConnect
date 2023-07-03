@@ -4,12 +4,15 @@ const signinRoutes = require('./routes/signin.js');
 const signupRoutes = require('./routes/signup.js');
 const paymentRoutes = require('./routes/payment.js');
 const movieRoutes = require('./routes/movie.js');
-const bodyParser = require('body-parser')
-const MoviesRoutes = require('./routes/movies.js')
-const carrinhoRoutes = require('./routes/carrinho.js')
-const carrinhoRoutes2 = require('./routes/carrinho_qualidade.js')
-const session = require('express-session')
-const atualizaruserRoutes = require('./routes/infousuario.js')
+const bodyParser = require('body-parser');
+const MoviesRoutes = require('./routes/movies.js');
+const carrinhoRoutes = require('./routes/carrinho.js');
+const carrinhoRoutes2 = require('./routes/carrinho_qualidade.js');
+const session = require('express-session');
+const atualizaruserRoutes = require('./routes/infousuario.js');
+const logoutRoutes = require('./routes/logout.js');
+const admRoutes = require('./routes/administracao.js');
+const cadastroFilemsRoutes = require('./routes/cadastrar_filme.js')
 
 
 
@@ -42,8 +45,11 @@ app.use('/payment', paymentRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movies',MoviesRoutes);
 app.use('/atualizarusuario', atualizaruserRoutes);
-app.use('/carrinho',carrinhoRoutes)
-app.use('/carrinho_qualidade',carrinhoRoutes2)
+app.use('/carrinho',carrinhoRoutes);
+app.use('/carrinho_qualidade',carrinhoRoutes2);
+app.use('/logout', logoutRoutes);
+app.use('/administracao', admRoutes);
+app.use('/cadastrarfilme', cadastroFilemsRoutes);
 
 
 

@@ -106,6 +106,11 @@ router.post('/', function(req, res, next) {
 
 router.get('/', function(req, res, next) {
 
+    if(!req.session.username) { // Não está logado
+        res.redirect('signin');
+        return;
+    }
+
     
 
     

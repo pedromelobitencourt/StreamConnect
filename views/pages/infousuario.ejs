@@ -42,7 +42,17 @@
               <a href="#" class="nav-link">Ajuda</a>
             </li>
 
-            <li class="nav-item divisor"></li>
+            <li class="nav-item">
+              <a href="/movies" class="nav-link">Filmes</a>
+            </li>
+
+            <% if(session.cpf === "0") { %>
+              <li class="nav-item"> <a class="nav-link" href="/administracao">Administração</a> </li>
+            <% } %>
+
+            <li class="nav-item">
+              <a href="/logout" class="nav-link">Logout</a>
+            </li>
 
           </ul>
         </div>
@@ -65,7 +75,7 @@
     </table>
   </div>
 
-  <div id="form-container" class="formcontainer" ">
+  <div id="form-container" class="formcontainer" >
     <form action="/atualizarusuario" method="post">
       
       <div class="mb-3">
